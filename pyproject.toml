@@ -10,5 +10,6 @@ dependencies = [
     "exa-py>=1.14.16",
     "google-genai>=1.25.0",
     "openai>=1.95.0",
+    "sqlalchemy>=2.0.41",
     "yfinance>=0.2.65",
 ]

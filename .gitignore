@@ -12,3 +12,5 @@ __pycache__/
 *.log
 .venv/
 >>>>>>> fe0461a (local machine error)
+
+agno/tmp/
