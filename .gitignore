@@ -2,15 +2,12 @@
 *.zip
 *.csv
 .mypy_cache/
-<<<<<<< HEAD
 __pycache__/
-=======
-__pycache__/
-.env
-*.pyc
+*.venv/
+agno_practice/tmp/
 *.lock
 *.log
-.venv/
->>>>>>> fe0461a (local machine error)
-
-agno/tmp/
+*.sqlite3
+*.db
+*.pyc
+.env
