@@ -9,9 +9,6 @@ from agno.tools.yfinance import YFinanceTools
 
 
 def main():
-    """
-    Main function to run the financial analysis agent.
-    """
     load_dotenv()
     google_api_key = os.getenv("GOOGLE_API_KEY")
     if not google_api_key:

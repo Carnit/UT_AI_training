@@ -32,8 +32,8 @@ Follow these steps to get the project running on your local machine.
 ### 1. Clone the Repository
 
 ```bash
-git clone <your-repository-url>
-cd langchain_project
+git clone https://github.com/Carnit/UT_AI_training.git>
+cd projects/langchain_project
 ```
 
 ### 2. Create a Virtual Environment
@@ -44,10 +44,9 @@ It's recommended to use a virtual environment to manage dependencies.
 # For Windows
 python -m venv venv
 venv\Scripts\activate
-
-# For macOS/Linux
-python3 -m venv venv
-source venv/bin/activate
+# or 
+uv venv 
+.venv\Scripts\activate
 ```
 
 ### 3. Install Dependencies
@@ -56,6 +55,8 @@ Install the required packages using the `requirements.txt` file:
 
 ```bash
 pip install -r requirements.txt
+# or
+uv sync
 ```
 
 ### 4. Set Up Environment Variables
@@ -75,6 +76,8 @@ Once the setup is complete, you can run the script from your terminal:
 
 ```bash
 python main.py
+# or 
+uv run main.py
 ```
 
 The script will then prompt you to enter a video topic.
