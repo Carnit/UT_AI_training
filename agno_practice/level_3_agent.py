@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 from agno.agent import Agent
 from agno.memory.v2.db.sqlite import SqliteMemoryDb
 from agno.memory.v2.memory import Memory
-from agno.models.google import Gemini  # Changed from Claude to Gemini
+from agno.models.google import Gemini
 from agno.tools.reasoning import ReasoningTools
 from agno.tools.yfinance import YFinanceTools
 
