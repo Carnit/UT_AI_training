@@ -7,24 +7,19 @@ from agno.models.google import Gemini  # Changed from Claude to Gemini
 from agno.tools.reasoning import ReasoningTools
 from agno.tools.yfinance import YFinanceTools
 
-# Load environment variables from .env file
 load_dotenv()
 
-# Get API key from environment variables
 gemini_api_key = os.getenv("GEMINI_API_KEY")
 
 memory = Memory(
-    # Use Gemini model for creating and managing memories
-    model=Gemini(api_key=gemini_api_key),  # Updated to Gemini
-    # Store memories in a SQLite database
+    model=Gemini(api_key=gemini_api_key),
     db=SqliteMemoryDb(table_name="user_memories", db_file="tmp/agent.db"),
-    # We disable deletion by default, enable it if needed
     delete_memories=True,
     clear_memories=True,
 )
 
 agent = Agent(
-    model=Gemini(api_key=gemini_api_key),  # Updated to Gemini
+    model=Gemini(api_key=gemini_api_key),
     tools=[
         ReasoningTools(add_instructions=True),
         YFinanceTools(
