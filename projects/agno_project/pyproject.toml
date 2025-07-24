@@ -1,0 +1,13 @@
+[project]
+name = "agno-project"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "agno>=1.7.2",
+    "fastapi[standard]>=0.116.1",
+    "google-genai>=1.25.0",
+    "mcp>=1.12.1",
+    "yfinance>=0.2.65",
+]
