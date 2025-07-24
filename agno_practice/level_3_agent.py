@@ -34,28 +34,24 @@ agent = Agent(
             company_news=True,
         ),
     ],
-    # User ID for storing memories, `default` if not provided
-    user_id="ava",
+    user_id="nilesh",
     instructions=[
         "Use tables to display data.",
         "Include sources in your response.",
         "Only include the report in your response. No other text.",
     ],
     memory=memory,
-    # Let the Agent manage its memories
     enable_agentic_memory=True,
     markdown=True,
 )
 
 if __name__ == "__main__":
-    # This will create a memory that "ava's" favorite stocks are NVIDIA and TSLA
     agent.print_response(
         "My favorite stocks are NVIDIA and TSLA",
         stream=True,
         show_full_reasoning=True,
         stream_intermediate_steps=True,
     )
-    # This will use the memory to answer the question
     agent.print_response(
         "Can you compare my favorite stocks?",
         stream=True,
