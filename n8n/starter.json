@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
     "id": "uJ3EzQF3mDFAnkeb",
     "meta": {
       "instanceId": "d56113bd7fa650b2ac10ad7d1c3d6997aa49fa4dd1df2270cd1ac1e53b86f03a",
@@ -288,3 +289,190 @@
       }
     }
   }
+=======
+  "nodes": [
+    {
+      "parameters": {
+        "public": true,
+        "options": {
+          "loadPreviousSession": "memory"
+        }
+      },
+      "id": "363a2a67-c7af-4770-93a7-dcd0a463f699",
+      "name": "When chat message received",
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "position": [
+        380,
+        0
+      ],
+      "webhookId": "f04048f5-3043-4250-ab36-aa282c819a69",
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "You are my intelligent personal assistant. Your role is to help me think critically, access structured external knowledge, and solve complex numerical problems. You have access to the following tools:\n\n1. **Think** – Use this tool to reason step-by-step before giving a final answer.\n2. **SerpAPI** – Use this to access verified external knowledge, including encyclopedic or factual data.\n3. **Calculator** – Use this to perform accurate numerical or mathematical computations.\n\nYour goals:\n- Understand my task or question deeply before responding.\n- When unsure, think step-by-step using the `Think` tool.\n- For factual knowledge or concepts, use the `SerpAPI` tool.\n- For numerical tasks or financial calculations, use the `Calculator`.\n- Always explain your steps in a concise and professional way unless instructed otherwise.\n- Keep answers short and efficient unless asked for elaboration.\n\nAlways act as a helpful, private, and reliable personal assistant."
+        }
+      },
+      "id": "1cf6692c-005f-4ef9-8066-041273120c8e",
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "position": [
+        720,
+        0
+      ],
+      "typeVersion": 2
+    },
+    {
+      "parameters": {},
+      "id": "09e46dd8-9581-4671-8261-6159daeef631",
+      "name": "Think",
+      "type": "@n8n/n8n-nodes-langchain.toolThink",
+      "position": [
+        1020,
+        200
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "c052664d-314b-4ab2-a50b-9fb06c509df6",
+      "name": "SerpAPI",
+      "type": "@n8n/n8n-nodes-langchain.toolSerpApi",
+      "position": [
+        1440,
+        200
+      ],
+      "typeVersion": 1,
+      "credentials": {
+        "serpApi": {
+          "id": "khNvbivSLsUQEwOL",
+          "name": "SerpAPI account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-2.5-flash-lite",
+        "options": {}
+      },
+      "id": "369bb18a-edbf-4079-9911-578c2d9e4eaf",
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "position": [
+        600,
+        200
+      ],
+      "typeVersion": 1,
+      "credentials": {
+        "googlePalmApi": {
+          "id": "OjaSrrQwbB5vIXld",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "78b32fab-e0be-4c9f-954b-c913acc41798",
+      "name": "Calculator",
+      "type": "@n8n/n8n-nodes-langchain.toolCalculator",
+      "position": [
+        1240,
+        200
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {},
+      "id": "74f599f0-2bf1-4491-a6d3-5e143e254c9d",
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "position": [
+        820,
+        200
+      ],
+      "typeVersion": 1.3
+    }
+  ],
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Think": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SerpAPI": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Calculator": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "When chat message received",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "99e21002d214226c6559bd5e1815b86c03817b37989cf475c38faa337b099a18"
+  }
+}
+>>>>>>> 981f3e97adca2a490c67ebbd8601861c3773e7f6

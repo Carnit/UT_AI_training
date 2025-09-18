@@ -1,0 +1,19 @@
+[project]
+name = "unsaidtalks"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "agno>=1.7.2",
+    "exa-py>=1.14.16",
+    "google-genai>=1.25.0",
+    "sqlalchemy>=2.0.41",
+    "yfinance>=0.2.65",
+]
+
+[tool.uv.workspace]
+members = [
+    "projects/agno_project",
+    "projects/langchain_project",
+]
